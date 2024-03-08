@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import DiseaseInfo from './components/DiseaseInfo';
+import Output from './components/Output.js';
 
 import LearnMoreDisease from './components/LearnMoreDisease';
 
@@ -76,7 +77,7 @@ function App() {
   <Route path="/FeatureInfo" element={<Feature />} />
   <Route path="/How_It_Works" element={<How_works />} />
   <Route path="/Benefit" element={<Benefit />} />
-  
+  <Route path="/Output" element={<Output />} />
   <Route
     path="/LearnMoreDisease"
     element={<LearnMoreDisease title="Default Title" />}
@@ -270,6 +271,7 @@ function App() {
         cause="Psoriasis and Lichen Planus are chronic skin conditions that can cause discomfort and affect the quality of life. They have distinct characteristics and require different approaches to management.Rapid Skin Cell Buildup: Psoriasis results in the rapid buildup of skin cells, leading to red, itchy, and scaly patches. Commonly affects areas like elbows, knees, and the scalp.Purplish, Flat-Topped Bumps: Lichen Planus is an inflammatory condition characterized by purplish, flat-topped bumps that may cause itching and discomfort. It can affect the skin, mucous membranes, and nails."
         cause4="Psoriasis Management: Treatment may include topical treatments, phototherapy, or systemic medications, depending on the severity of Psoriasis.Lichen Planus Treatment: Management may involve topical corticosteroids, antihistamines, or other medications to alleviate symptoms of Lichen Planus.Medical EvaluationAccurate Diagnosis and Tailored Treatment: Both conditions benefit from medical evaluation for an accurate diagnosis and a tailored treatment plan."/>
     }
+
 />
 
 

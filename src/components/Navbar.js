@@ -104,7 +104,7 @@ export default function Navbar() {
           <img className='two_img' src={pop1image} alt="Pop-up Image" />
           <div className="d-grid gap-2 col-4 mx-auto">
           {/* Use a label or a span to provide additional text */}
-          <label htmlFor="file-upload" className="btn rounded-button" style={{
+          <NavLink htmlFor="file-upload" className="btn rounded-button" to='/Output' style={{
             fontFamily: 'math',
             background: '#3361a5',
             border: 'none',
@@ -114,13 +114,13 @@ export default function Navbar() {
             fontWeight: 'bold',
             color:'white',
           }}>
-            <input
+            {/* <input
               id="file-upload"
               type="file"
               style={{ display: 'none',  }}
-            />
-            Click Photo
-          </label>
+            /> */}
+            Click Photo 
+          </NavLink>
         </div>
         </div>
         </div>
