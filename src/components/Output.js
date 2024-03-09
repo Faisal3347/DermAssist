@@ -4,6 +4,8 @@ import axios from "axios";
 const Home = () => {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
+  const [percentage, setPercentage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -11,6 +13,7 @@ const Home = () => {
   };
 
   const handlePredict = async () => {
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -18,10 +21,12 @@ const Home = () => {
         "http://127.0.0.1:5000/predict",
         formData
       );
-      console.log(response.data.percentage)
       setResult(response.data.result);
+      setPercentage(response.data.percentage);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,7 +35,7 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="mb-4">
           <h1 className="text-3xl font-bold">
-            Skin Disease detection  Using Deep Learning
+            Skin Disease detection Using Deep Learning
           </h1>
         </div>
 
@@ -47,12 +52,20 @@ const Home = () => {
           <button
             onClick={handlePredict}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            disabled={loading}
           >
-            Predict
+            {loading ? "Predicting..." : "Predict"}
           </button>
         </div>
 
-        <div>{result && <p className="text-xl"> Result: {result}</p>}</div>
+        <div>
+          {result && (
+            <div>
+              <p className="text-xl">Result: {result}</p>
+              <p className="text-xl">Percentage: {percentage}%</p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
